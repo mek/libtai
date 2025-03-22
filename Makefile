@@ -4,6 +4,10 @@ SHELL=/bin/sh
 
 default: it
 
+clean: 
+	@rm -f *~
+	@awk -F: '/^[a-z].*:/ {print $$1}' Makefile | xargs rm -f
+
 auto-ccld.sh: \
 conf-cc conf-ld warn-auto.sh
 	( cat warn-auto.sh; \

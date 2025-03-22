@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "leapsecs.h"
 #include "tai.h"
 #include "taia.h"
@@ -10,6 +11,7 @@ struct caltime ct;
 
 char x[TAIA_FMTFRAC];
 
+int
 main()
 {
   if (leapsecs_init() == -1) {
@@ -23,7 +25,7 @@ main()
   taia_tai(&now,&sec);
   caltime_utc(&ct,&sec,(int *) 0,(int *) 0);
 
-  printf("%d-%02d-%02d %02d:%02d:%02d.%s\n"
+  printf("%ld-%02d-%02d %02d:%02d:%02d.%s\n"
     ,ct.date.year
     ,ct.date.month
     ,ct.date.day

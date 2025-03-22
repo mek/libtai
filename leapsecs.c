@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "tai.h"
+#include <stdlib.h>
 #include "leapsecs.h"
 #include "caldate.h"
 
@@ -9,6 +10,7 @@
 
 char line[100];
 
+int
 main()
 {
   struct caldate cd;

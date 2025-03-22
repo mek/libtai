@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "tai.h"
 #include "leapsecs.h"
@@ -11,6 +12,7 @@ char *dayname[7] = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" } ;
 char out[101];
 char x[TAI_PACK];
 
+int
 main()
 {
   struct tai t;
@@ -36,7 +38,7 @@ main()
       tai_sub(&t2,&t2,&t);
       packerr = tai_approx(&t2);
       for (i = 0;i < TAI_PACK;++i)
-        printf("%2.2x",(unsigned long) (unsigned char) x[i]);
+        printf("%02x",(unsigned int) (unsigned char) x[i]);
       if (packerr)
         printf(" packerr=%f",packerr);
       printf(" %03d  %s",yearday,dayname[weekday]);
